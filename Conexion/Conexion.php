@@ -3,7 +3,7 @@
 $host = "localhost";     // Servidor de base de datos
 $usuario = "root";       // Usuario de MySQL
 $clave = "";             // Contraseña de MySQL
-$baseDatos = "mi_base";  // Nombre de la base de datos
+$baseDatos = "employeesdb";  // Nombre de la base de datos
 
 // Crear conexión usando MySQLi orientado a objetos
 $conexion = new mysqli($host, $usuario, $clave, $baseDatos);
