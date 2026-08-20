@@ -17,6 +17,7 @@
         <nav class="menu">
             <h2>Reportes</h2>
             <div class="menu-enlaces">
+                <a href="index.php?vista=empleado">Busqueda de Empleados</a>
                 <a href="index.php?vista=contrataciones">1. Contrataciones por año y género</a>
                 <a href="index.php?vista=salario">2. Salario promedio por departamento</a>
                 <a href="index.php?vista=departamento">3. Empleados por departamento</a>

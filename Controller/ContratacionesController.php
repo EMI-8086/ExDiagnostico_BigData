@@ -1,5 +1,5 @@
 <?php
-class ContratacinoesController {
+class ContratacionesController {
     private $db;
 
     public function __construct($conexion) {
