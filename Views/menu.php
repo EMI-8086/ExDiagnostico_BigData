@@ -24,6 +24,8 @@
                 <a href="index.php?vista=edadGenero">4. Rangos de edad y género</a>
                 <a href="index.php?vista=incrementoSalarial">5. Mayor incremento salarial</a>
                 <a href="index.php?vista=evolucionSalarial">6. Evolución salarial anual</a>
+                <a href="index.php?vista=reporteContrataciones">1. Reporte Contrataciones</a>
+                <a href="index.php?vista=reporteSalarios">2. Reporte Salarios</a>
             </div>
         </nav>
     </section>

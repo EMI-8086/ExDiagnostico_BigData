@@ -29,7 +29,7 @@ $top = in_array($topSolicitado, $opcionesTop, true) ? $topSolicitado : 10;
 $vista = $_GET['vista'] ?? $_GET['modulo'] ?? 'menu';
 
 switch ($vista) {
-
+    //Vista General Empleados 
     case 'empleado':
         require_once __DIR__ . '/Controller/EmpleadoController.php';
         $empleadoController = new EmpleadoController($db);
@@ -60,6 +60,7 @@ switch ($vista) {
         require_once __DIR__ . '/Views/empleado.php';
         break;
 
+    //Graficas
     case 'contrataciones':
         require_once __DIR__ . '/Controller/ContratacionesController.php';
         $controller = new ContratacionesController($db);
@@ -73,6 +74,13 @@ switch ($vista) {
         $controller = new SalarioController($db);
         $datosSalarios = $controller->getDatosSalarios();
         require_once __DIR__ . '/Views/salario.php';
+        break;
+
+    case 'departamento':
+        require_once __DIR__ . '/Controller/DepartamentoController.php';
+        $controller = new DepartamentoController($db);
+        $datosSalarios = $controller->getEmpleadosDepartamento();
+        require_once __DIR__ . '/Views/departamento.php';
         break;
 
     case 'edadGenero':
@@ -95,7 +103,24 @@ switch ($vista) {
         $datosEvolucion = $controller->getEvolucionSalarial();
         require_once __DIR__ . '/Views/evolucionSalarial.php';
         break;
+    
+    //Reportes
 
+    case 'reporteContrataciones':
+        require_once __DIR__ . '/Controller/ContratacionesController.php';
+        $controller = new ContratacionesController($db);
+        $datosReporte = $controller->getTablaContrataciones();
+        require_once __DIR__ . '/Reports/ContratacionesReport.php';
+        break;
+
+    case 'reporteSalarios':
+        require_once __DIR__ . '/Controller/SalarioController.php';
+        $controller = new SalarioController($db);
+        $datosReporte = $controller->getTablaSalarios();
+        require_once __DIR__ . '/Reports/SalariosReport.php';
+        break;
+
+    // Default
     default:
         require_once __DIR__ . '/Views/menu.php';
         break;

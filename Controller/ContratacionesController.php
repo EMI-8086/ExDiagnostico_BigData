@@ -35,5 +35,15 @@ class ContratacionesController {
 
         return $datos;
     }
+
+    // Agrega este nuevo método dentro de la clase
+    public function getTablaContrataciones() {
+        $sql = "SELECT YEAR(hire_date) AS anio, gender AS genero, COUNT(*) AS total_contrataciones 
+                FROM employees 
+                GROUP BY YEAR(hire_date), gender 
+                ORDER BY anio DESC"; // Ordenado del más reciente al más antiguo
+        $stmt = $this->db->query($sql);
+        return $stmt->fetchAll();
+    }
 }
 ?>
