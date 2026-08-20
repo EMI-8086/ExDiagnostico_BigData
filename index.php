@@ -29,21 +29,20 @@ $top = in_array($topSolicitado, $opcionesTop, true) ? $topSolicitado : 10;
 switch ($vista) {
 
     // --- Persona 1 (Emil): Reportes 1 y 2 ---
+    // Reporte 1: Evolución de Contrataciones
     case 'contrataciones':
-    case 'salarios':
-        require_once __DIR__ . '/Controller/DashboardController.php';
-        $controller = new DashboardController($db);
+        require_once __DIR__ . '/Controller/ContratacionesController.php';
+        $controller = new ContratacinoesController($db);
         $datosContrataciones = $controller->getDatosContrataciones();
-        $datosSalarios = $controller->getDatosSalarios();
-        require_once __DIR__ . '/Views/dashboard.php'; // vista de Emil (reportes 1-2)
+        require_once __DIR__ . '/Views/contrataciones.php';
         break;
 
-    // Reporte 3 ---
-    case 'departamento':
-        require_once __DIR__ . '/Controller/DepartamentoController.php';
-        $controller = new DepartamentoController($db);
-        $datosDepartamentos = $controller->getEmpleadosDepartamento();
-        require_once __DIR__ . '/Views/departamento.php';
+    // Reporte 2: Salario Promedio por Departamento
+    case 'salario':
+        require_once __DIR__ . '/Controller/SalarioController.php';
+        $controller = new SalarioController($db);
+        $datosSalarios = $controller->getDatosSalarios();
+        require_once __DIR__ . '/Views/salario.php';
         break;
 
     //  Reporte 4 ---

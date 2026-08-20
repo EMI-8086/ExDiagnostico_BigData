@@ -1,12 +1,11 @@
 <?php
-class DashboardController {
+class ContratacinoesController {
     private $db;
 
     public function __construct($conexion) {
         $this->db = $conexion;
     }
 
-    // Método para la Consulta 1
     public function getDatosContrataciones() {
         $sql = "SELECT YEAR(hire_date) AS anio, gender AS genero, COUNT(*) AS total_contrataciones 
                 FROM employees 
@@ -15,11 +14,7 @@ class DashboardController {
         $stmt = $this->db->query($sql);
         $resultados = $stmt->fetchAll();
 
-        $datos = [
-            'anios' => [],
-            'hombres' => [],
-            'mujeres' => []
-        ];
+        $datos = ['anios' => [], 'hombres' => [], 'mujeres' => []];
         $temp_data = [];
 
         foreach ($resultados as $row) {
@@ -36,30 +31,6 @@ class DashboardController {
             $datos['anios'][] = $anio;
             $datos['hombres'][] = $totales['M'];
             $datos['mujeres'][] = $totales['F'];
-        }
-
-        return $datos;
-    }
-
-    // Método para la Consulta 2
-    public function getDatosSalarios() {
-        $sql = "SELECT d.dept_name AS departamento, ROUND(AVG(s.salary), 2) AS salario_promedio 
-                FROM departments d 
-                JOIN dept_emp de ON d.dept_no = de.dept_no 
-                JOIN salaries s ON de.emp_no = s.emp_no 
-                GROUP BY d.dept_name 
-                ORDER BY salario_promedio DESC";
-        $stmt = $this->db->query($sql);
-        $resultados = $stmt->fetchAll();
-
-        $datos = [
-            'departamentos' => [],
-            'salarios' => []
-        ];
-
-        foreach ($resultados as $row) {
-            $datos['departamentos'][] = $row['departamento'];
-            $datos['salarios'][] = $row['salario_promedio'];
         }
 
         return $datos;

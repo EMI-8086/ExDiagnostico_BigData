@@ -18,7 +18,7 @@
             <h2>Reportes</h2>
             <div class="menu-enlaces">
                 <a href="index.php?vista=contrataciones">1. Contrataciones por año y género</a>
-                <a href="index.php?vista=salarios">2. Salario promedio por departamento</a>
+                <a href="index.php?vista=salario">2. Salario promedio por departamento</a>
                 <a href="index.php?vista=departamento">3. Empleados por departamento</a>
                 <a href="index.php?vista=edadGenero">4. Rangos de edad y género</a>
                 <a href="index.php?vista=incrementoSalarial">5. Mayor incremento salarial</a>
