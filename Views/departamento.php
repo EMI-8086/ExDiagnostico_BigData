@@ -17,12 +17,23 @@ foreach ($datosDepartamentos as $d) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reporte 3 - Empleados por departamento</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="assets/estilos.css">
+    <!-- Asegúrate de tener este archivo CSS o reemplázalo con tus estilos -->
+    <link rel="stylesheet" href="assets/estilos.css"> 
+    <style>
+        /* Un poco de estilo extra para que la gráfica no se desborde */
+        .canvas-wrap { position: relative; height: 400px; width: 100%; max-width: 800px; margin: 0 auto; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+        th, td { padding: 10px; border: 1px solid #ddd; text-align: center; }
+        .texto-izquierda { text-align: left; }
+        .indicadores { display: flex; gap: 20px; margin-bottom: 20px; }
+        .indicador { background: #f4f7f6; padding: 15px; border-radius: 8px; flex: 1; text-align: center; }
+        .indicador strong { display: block; font-size: 1.5em; color: #2563eb; }
+    </style>
 </head>
 <body>
 <header>
     <h1>3. Número de empleados por departamento</h1>
-    <p><a href="index.php">Volver al menú principal</a></p>
+    <p><a href="index.php">⬅ Volver al menú principal</a></p>
 </header>
 
 <main>
@@ -88,7 +99,7 @@ foreach ($datosDepartamentos as $d) {
             }]
         },
         options: {
-            indexAxis: 'y',
+            indexAxis: 'y', // Barras horizontales
             responsive: true,
             maintainAspectRatio: false,
             plugins: { legend: { display: false } }

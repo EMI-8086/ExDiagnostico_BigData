@@ -79,8 +79,8 @@ switch ($vista) {
     case 'departamento':
         require_once __DIR__ . '/Controller/DepartamentoController.php';
         $controller = new DepartamentoController($db);
-        $datosSalarios = $controller->getEmpleadosDepartamento();
-        require_once __DIR__ . '/Views/departamento.php';
+        $datosDepartamentos = $controller->getEmpleadosDepartamento();
+        require_once __DIR__ . '/Views/departamento.php'; 
         break;
 
     case 'edadGenero':

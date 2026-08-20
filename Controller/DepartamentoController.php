@@ -1,6 +1,5 @@
 <?php
 // Reporte 3: Número de empleados por departamento
-// Un solo controlador dedicado a esta implementación, como pidió Emil.
 class DepartamentoController {
     private $db;
 
